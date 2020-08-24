@@ -1,0 +1,15 @@
+<div [ngClass]="alertClass" class="alert" role="alert">
+    A simple primary alert—check it out!
+</div>
+<button class="btn btn-primary" (click)="alertClass = 'alert-primary'; obj.primary = true">Primary</button>
+<button class="btn btn-danger" (click)="alertClass = 'alert-danger'; obj.primary = false">Secondary</button>
+<br>
+<h3 [ngClass]="{ 'text-primary': obj.primary, 'text-danger': !obj.primary }">Algo importante que decir</h3>
+<hr>
+<br>
+<h3>Proceso asincrono</h3>
+<button class="btn btn-primary" (click)="guardar()" [disabled]="guardando">
+    <i [ngClass]="{'fa-save': !guardando, 'fa-refresh fa-spin': guardando}" class="fa"></i>
+    <span *ngIf="!guardando">Guardar</span>
+    <span *ngIf="guardando">Guardando...</span>
+</button>
